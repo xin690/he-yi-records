@@ -5,25 +5,27 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   base: './',
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-    },
+  define: {
+    'process.env': '{}',
+    'process': 'undefined',
   },
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    minify: 'esbuild',
+    lib: {
+      entry: path.resolve(__dirname, 'src/main.tsx'),
+      name: 'HeYiRecords',
+      formats: ['umd'],
+      fileName: () => 'index.js',
+    },
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          echarts: ['echarts', 'echarts-for-react'],
-        },
+        entryFileNames: 'index.js',
+        chunkFileNames: 'index.js',
+        assetFileNames: 'index.[ext]',
       },
     },
   },
   publicDir: 'public',
-  server: {
-    port: 5173,
-  },
 })
