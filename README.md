@@ -6,6 +6,8 @@
 [![Electron](https://img.shields.io/badge/Electron-28+-brightgreen.svg)](https://www.electronjs.org/)
 [![React](https://img.shields.io/badge/React-18+-blue.svg)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5+-blue.svg)](https://www.typescriptlang.org/)
+[![Capacitor](https://img.shields.io/badge/Capacitor-8+-blue.svg)](https://capacitorjs.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 
 ## 简介
 
