@@ -14,6 +14,15 @@
   body {
     @apply font-sans antialiased text-gray-900 bg-gray-50 dark:bg-gray-900 dark:text-gray-100;
   }
+
+  html {
+    @apply min-h-full;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
 }
 
 @layer components {
@@ -37,5 +46,9 @@
     @apply w-full px-3 py-2 border border-gray-300 rounded-lg 
            focus:outline-none focus:ring-2 focus:ring-primary-500 
            dark:border-gray-600 dark:bg-gray-700;
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }

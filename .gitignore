@@ -39,3 +39,10 @@ coverage/
 
 # Electron
 *.asar
+
+# Capacitor
+android/app/build/
+ios/App/App/public/
+android/app/src/main/assets/public/
+.gradle/
+local.properties
