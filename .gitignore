@@ -46,3 +46,6 @@ ios/App/App/public/
 android/app/src/main/assets/public/
 .gradle/
 local.properties
+android/app/*.jks
+android/app/*.keystore
+android/app/KEYSTORE_NOTICE.md
