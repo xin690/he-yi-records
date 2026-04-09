@@ -1,0 +1,124 @@
+{
+  "name": "he-yi-records",
+  "version": "1.0.0",
+  "description": "合一记账 - 纯本地运行的个人财务管理应用，支持导入支付宝、微信、京东、银行等平台账单",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev:vite\" \"node scripts/wait-and-run.js\"",
+    "dev:vite": "vite",
+    "dev:electron": "npm run build:electron && cross-env NODE_ENV=development electron .",
+    "build": "tsc -p electron/tsconfig.json && vite build",
+    "build:electron": "tsc -p electron/tsconfig.json",
+    "build:app": "npm run build && electron-builder --win --dir",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux",
+    "build:all": "npm run build && electron-builder --win --mac --linux",
+    "pack": "npm run build && electron-builder --win",
+    "pack:dir": "npm run build && electron-builder --win --dir",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "electron",
+    "react",
+    "typescript",
+    "accounting",
+    "finance",
+    "bill-management",
+    "财务管理"
+  ],
+  "author": "xin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xin690/he-yi-records.git"
+  },
+  "homepage": "https://github.com/xin690/he-yi-records",
+  "bugs": {
+    "url": "https://github.com/xin690/he-yi-records/issues"
+  },
+  "dependencies": {
+    "echarts": "^5.6.0",
+    "echarts-for-react": "^3.0.6",
+    "electron-log": "^5.1.1",
+    "exceljs": "^4.4.0",
+    "lucide-react": "^0.263.1",
+    "papaparse": "^5.5.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3",
+    "zustand": "^4.5.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.5",
+    "@types/papaparse": "^5.3.14",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.17",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^28.2.3",
+    "electron-builder": "^24.13.3",
+    "postcss": "^8.2.15",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  },
+  "build": {
+    "appId": "com.heyi.records",
+    "productName": "合一记账",
+    "copyright": "Copyright (c) 2024 xin",
+    "directories": {
+      "output": "release",
+      "buildResources": "resources"
+    },
+    "files": [
+      "dist/**/*",
+      "dist-electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "dir",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "合一记账"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "public.app-category.finance",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Finance",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    }
+  }
+}
