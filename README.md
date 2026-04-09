@@ -168,6 +168,53 @@ he-yi-records/
 
 本项目基于 MIT 许可证开源，详见 [LICENSE](LICENSE) 文件。
 
+## 移动端支持 (Android/iOS)
+
+使用 CapacitorJS 将应用转换为移动端应用。
+
+### 前置要求
+
+- Android Studio (Android 构建)
+- Xcode (iOS 构建，仅 macOS)
+
+### 构建 Android APK
+
+```bash
+# 安装 Capacitor 依赖（仅首次）
+npm install @capacitor/core @capacitor/cli @capacitor/android
+npx cap add android
+
+# 构建 Web
+npm run build
+
+# 同步到 Android
+npx cap sync android
+
+# 使用 Android Studio 打开项目
+# Build → Build APK
+```
+
+APK 输出路径：`android/app/build/outputs/apk/debug/app-debug.apk`
+
+### 构建 iOS
+
+```bash
+# 添加 iOS 平台
+npx cap add ios
+
+# 同步到 iOS
+npx cap sync ios
+
+# 使用 Xcode 打开项目
+# Product → Build
+```
+
+### 注意事项
+
+- 移动端使用 WebView 加载，数据存储在 localStorage
+- 部分桌面端特性（如文件选择器）在移动端需使用 Capacitor 插件
+- 建议使用 HashRouter (已在配置中启用)
+
 ## 贡献指南
 
 欢迎提交 Issue 和 Pull Request！

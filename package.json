@@ -15,7 +15,9 @@
     "build:all": "npm run build && electron-builder --win --mac --linux",
     "pack": "npm run build && electron-builder --win",
     "pack:dir": "npm run build && electron-builder --win --dir",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cap:sync": "npm run build && npx cap sync android",
+    "cap:open": "npx cap open android"
   },
   "keywords": [
     "electron",
@@ -37,6 +39,9 @@
     "url": "https://github.com/xin690/he-yi-records/issues"
   },
   "dependencies": {
+    "@capacitor/android": "^8.3.0",
+    "@capacitor/cli": "^8.3.0",
+    "@capacitor/core": "^8.3.0",
     "echarts": "^5.6.0",
     "echarts-for-react": "^3.0.6",
     "electron-log": "^5.1.1",

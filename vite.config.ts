@@ -13,17 +13,12 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     minify: 'esbuild',
-    lib: {
-      entry: path.resolve(__dirname, 'src/main.tsx'),
-      name: 'HeYiRecords',
-      formats: ['umd'],
-      fileName: () => 'index.js',
-    },
     rollupOptions: {
       output: {
-        entryFileNames: 'index.js',
-        chunkFileNames: 'index.js',
-        assetFileNames: 'index.[ext]',
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          echarts: ['echarts', 'echarts-for-react'],
+        },
       },
     },
   },
