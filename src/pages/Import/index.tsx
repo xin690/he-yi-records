@@ -5,6 +5,7 @@ import { useInitStore } from '../../hooks/useInitStore'
 import { categorize } from '../../lib/categorizationEngine'
 import { parseBankFile, parseBankCSV } from '../../lib/bankParser'
 import ExcelJS from 'exceljs'
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem'
 
 const sources = [
   { id: '支付宝', name: '支付宝', icon: FileText, color: 'bg-blue-500' },
@@ -358,6 +359,14 @@ async function tryDifferentEncodings(file: File, defaultContent: string): Promis
     reader.onerror = reject
     reader.readAsText(file, 'GB2312')
   })
+}
+
+async function readFileContent(file: File): Promise<string> {
+  return await file.text()
+}
+
+async function readFileAsArrayBuffer(file: File): Promise<ArrayBuffer> {
+  return await file.arrayBuffer()
 }
 
 export function ImportPage() {

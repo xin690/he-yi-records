@@ -10,8 +10,14 @@ export interface ElectronAPI {
   platform: string;
 }
 
+export interface CapacitorGlobal {
+  isNativePlatform: boolean;
+  Plugins: Record<string, unknown>;
+}
+
 declare global {
   interface Window {
     electronAPI: ElectronAPI
+    capacitors?: CapacitorGlobal
   }
 }
