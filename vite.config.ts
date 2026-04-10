@@ -1,16 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
   base: './',
   define: {
     'process.env': '{}',
-    'process': 'undefined',
+    process: 'undefined',
   },
   build: {
-    outDir: 'dist',
+    outDir: 'build/web',
     emptyOutDir: true,
     minify: 'esbuild',
     rollupOptions: {
@@ -23,4 +23,4 @@ export default defineConfig({
     },
   },
   publicDir: 'public',
-})
+});

@@ -46,6 +46,7 @@
     "@capacitor/android": "^8.3.0",
     "@capacitor/cli": "^8.3.0",
     "@capacitor/core": "^8.3.0",
+    "@capacitor/filesystem": "^8.1.2",
     "echarts": "^5.6.0",
     "echarts-for-react": "^3.0.6",
     "electron-log": "^5.1.1",
@@ -85,8 +86,13 @@
     "vite": "^5.0.12"
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["eslint --fix", "prettier --write"],
-    "*.{json,css,md}": ["prettier --write"]
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   },
   "husky": {
     "hooks": {
@@ -98,12 +104,13 @@
     "productName": "合一记账",
     "copyright": "Copyright (c) 2024 xin",
     "directories": {
-      "output": "release",
+      "output": "build/windows",
       "buildResources": "resources"
     },
     "files": [
-      "dist/**/*",
-      "dist-electron/**/*",
+      "build/web/**/*",
+      "build/electron/**/*",
+      "public/**/*",
       "package.json"
     ],
     "asar": true,

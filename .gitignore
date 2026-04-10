@@ -2,9 +2,7 @@
 node_modules/
 
 # Build outputs
-dist/
-dist-electron/
-release/
+build/
 
 # IDE
 .idea/
@@ -42,6 +40,7 @@ coverage/
 
 # Capacitor
 android/app/build/
+android/app/release/
 ios/App/App/public/
 android/app/src/main/assets/public/
 .gradle/
