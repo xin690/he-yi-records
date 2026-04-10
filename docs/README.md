@@ -212,7 +212,9 @@ npx cap sync ios
 
 ### Android APK
 
-直接下载链接：https://github.com/xin690/he-yi-records/releases/download/v1.0.0-beta.1/he-yi-records-v1.0.0-beta.1.apk
+直接下载：https://github.com/xin690/he-yi-records/raw/master/android/app/he-yi-records-v1.0.0-beta.1.apk
+
+或访问发布页面：https://github.com/xin690/he-yi-records/tree/master/android/app
 
 ## 许可证
 
