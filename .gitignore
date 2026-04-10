@@ -4,6 +4,9 @@ node_modules/
 # Build outputs
 build/
 
+# APK releases
+build/android/*.apk
+
 # IDE
 .idea/
 .vscode/

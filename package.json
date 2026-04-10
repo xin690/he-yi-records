@@ -2,7 +2,7 @@
   "name": "he-yi-records",
   "version": "1.0.0",
   "description": "合一记账 - 纯本地运行的个人财务管理应用，支持导入支付宝、微信、京东、银行等平台账单",
-  "main": "dist-electron/main.js",
+  "main": "build/electron/main.js",
   "scripts": {
     "dev": "concurrently -k \"npm run dev:vite\" \"node scripts/wait-and-run.js\"",
     "dev:vite": "vite",
@@ -21,7 +21,9 @@
     "lint": "eslint src --ext .ts,.tsx",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css,md}\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "keywords": [
     "electron",
@@ -65,7 +67,7 @@
     "@types/react-dom": "^18.2.18",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.17",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
@@ -78,12 +80,14 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.3",
+    "jsdom": "^29.0.2",
     "lint-staged": "^15.2.2",
     "postcss": "^8.2.15",
     "prettier": "^3.2.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
-    "vite": "^5.0.12"
+    "vite": "^5.0.12",
+    "vitest": "^4.1.4"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
